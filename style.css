@@ -1,0 +1,150 @@
+:root {
+    --bg: #f8f8f8;
+    --white: #ffffff;
+    --black: #000000;
+    --muted: rgba(0,0,0,0.5);
+    --border: rgba(0,0,0,0.08);
+    --premium-ease: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Базовые стили */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { 
+    font-family: 'Inter', sans-serif; 
+    background: var(--bg); 
+    color: var(--black); 
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    font-size: 16px;
+}
+
+/* Эффект шума */
+body::before {
+    content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url("https://www.transparenttextures.com/patterns/p6-static.png");
+    opacity: 0.02; pointer-events: none; z-index: 999;
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding-inline: 24px; }
+
+/* АНИМАЦИЯ ПОЯВЛЕНИЯ */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s var(--premium-ease), transform 1.2s var(--premium-ease), background-color 0.5s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ДЕЛИКАТНАЯ ПОДСВЕТКА СЕКЦИИ */
+.section-highlight {
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: 20px;
+}
+
+/* Шапка сайта (Glassmorphism при скролле) */
+.site-header { 
+    padding: 30px 0; 
+    position: sticky; top: 0; z-index: 100;
+    transition: 0.3s var(--premium-ease);
+}
+.header-inner { display: flex; justify-content: space-between; align-items: center; }
+.logo-group { display: flex; align-items: center; gap: 10px; }
+.logo-icon { width: 26px; height: 26px; opacity: 0.8; }
+.logo { font-weight: 900; text-decoration: none; color: var(--black); font-size: 18px; letter-spacing: -0.05em; }
+
+.site-nav { display: flex; gap: 25px; }
+.site-nav a { 
+    text-decoration: none; color: var(--muted); font-size: 13px; font-weight: 700; 
+    text-transform: uppercase; letter-spacing: 0.12em; transition: 0.3s;
+    position: relative; padding-bottom: 3px;
+}
+.site-nav a:hover { color: var(--black); }
+.site-nav a::after {
+    content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px;
+    background: var(--black); transition: 0.3s var(--premium-ease);
+}
+.site-nav a:hover::after { width: 100%; }
+
+.header-scrolled { 
+    background: rgba(248, 248, 248, 0.85); 
+    backdrop-filter: blur(12px); 
+    padding: 18px 0; 
+    border-bottom: 1px solid var(--border); 
+}
+
+/* --- КОМПАКТНЫЙ HERO --- */
+.hero { 
+    padding: 100px 0 60px; /* Акуратный отступ сверху */
+    text-align: left; 
+}
+h1 { 
+    font-size: clamp(36px, 6vw, 72px); /* Сдержанный размер шрифта */
+    font-weight: 900; 
+    line-height: 1.1; 
+    letter-spacing: -0.04em; 
+}
+.thin { font-weight: 400; opacity: 0.4; }
+.lead { 
+    max-width: 500px; 
+    font-size: clamp(16px, 1.5vw, 19px); 
+    color: var(--muted); 
+    margin-top: 25px; 
+}
+
+/* Общие стили секций */
+.section-line { 
+    padding-block: clamp(60px, 8vh, 100px); 
+    border-top: 1px solid var(--border);
+    transition: background-color 0.5s var(--premium-ease);
+    margin-top: 20px;
+}
+.label { 
+    display: block; font-weight: 900; text-transform: uppercase; 
+    font-size: 11px; letter-spacing: 0.15em; color: var(--muted); 
+    margin-bottom: 40px; 
+}
+
+/* Аккордеоны (Кейсы и Для кого) */
+.portfolio-item, .acc-item { 
+    background: var(--white); padding: 35px; border-radius: 14px; 
+    border: 1px solid var(--border); cursor: pointer; transition: 0.4s var(--premium-ease);
+    margin-bottom: 15px;
+}
+.portfolio-item:hover, .acc-item:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.03); }
+
+.portfolio-main, .acc-trigger { display: flex; justify-content: space-between; align-items: center; }
+.project-info h3, .acc-trigger h3 { font-size: 26px; font-weight: 900; letter-spacing: -0.01em; transition: 0.3s; }
+.project-category { color: var(--muted); font-size: 13px; text-transform: uppercase; font-weight: 700; }
+
+.case-details, .acc-panel { max-height: 0; overflow: hidden; opacity: 0; transition: 0.6s var(--premium-ease); }
+.active .case-details, .active .acc-panel { max-height: 500px; opacity: 1; padding-top: 30px; margin-top: 30px; border-top: 1px solid var(--border); }
+
+.arrow, .plus { font-size: 22px; transition: 0.5s var(--premium-ease); }
+.active .arrow { transform: rotate(180deg); }
+.active .plus { transform: rotate(45deg); }
+
+.case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 30px; }
+.mini-label { font-size: 10px; font-weight: 900; color: var(--muted); text-transform: uppercase; margin-bottom: 8px; display: block; }
+.acc-content { padding-top: 15px; color: var(--muted); font-size: 17px; max-width: 600px; }
+
+/* Тарифы */
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.price-card { 
+    background: var(--white); padding: 50px 35px; border-radius: 16px; 
+    border: 1px solid var(--border); text-align: center; position: relative;
+    transition: 0.4s var(--premium-ease);
+}
+.price-card.popular { border: 2px solid var(--black); }
+.price-card:hover { transform: scale(1.02); }
+
+.badge { position: absolute; top: 20px; left: 50%; transform: translateX(-50%); background: var(--black); color: #fff; font-size: 10px; padding: 5px 14px; border-radius: 20px; font-weight: 900; }
+.amount { font-size: 44px; font-weight: 900; margin: 25px 0 15px; }
+.features { list-style: none; margin-bottom: 35px; color: var(--muted); font-size: 15px; text-align: left; }
+.features li { margin-bottom: 8px; }
+
+/* Кнопки */
+.btn { padding: 16px 28px; border-radius: 10px; font-weight: 700; cursor: pointer; width: 100%; border: none; font-size: 15px; transition: 0.3s; }
+.btn-black { background: var(--black); color: #fff; }
+.btn-white { background: transparent; border: 1px solid var(--black); color: var(--black); }
+.btn:hover { opacity: 0.8; transform: scale(0.98); }

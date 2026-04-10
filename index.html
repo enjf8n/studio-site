@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ателье — Премиальный дизайн</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/869/869150.png">
+</head>
+<body>
+
+    <header class="site-header" id="header">
+        <div class="container header-inner">
+            <div class="logo-group">
+                <img src="https://cdn-icons-png.flaticon.com/512/869/869150.png" alt="Logo" class="logo-icon">
+                <a href="#" class="logo">АТЕЛЬЕ</a>
+            </div>
+            <nav class="site-nav">
+                <a href="#work" data-link="work">Кейсы</a>
+                <a href="#for-whom" data-link="for-whom">Для кого</a>
+                <a href="#pricing" data-link="pricing">Тарифы</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero reveal">
+            <h1>Тишина формы.<br><span class="thin">Чёткость смысла.</span></h1>
+            <p class="lead">Мы проектируем цифровые продукты с архитектурной точностью. Минимум визуального шума — максимум бизнес-результата.</p>
+        </section>
+
+        <section id="work" class="section-line reveal">
+            <span class="label">Выбранные кейсы</span>
+            <div class="portfolio-item">
+                <div class="portfolio-main">
+                    <div class="project-info">
+                        <h3>Fintech OS</h3>
+                        <p class="project-category">Сложные системы</p>
+                    </div>
+                    <span class="arrow">↓</span>
+                </div>
+                <div class="case-details">
+                    <div class="case-grid">
+                        <div class="case-col">
+                            <span class="mini-label">Проблема</span>
+                            <p>Низкая конверсия в регистрацию из-за перегруженных форм.</p>
+                        </div>
+                        <div class="case-col">
+                            <span class="mini-label">Решение</span>
+                            <p>Упрощение интерфейса и внедрение системы умных подсказок.</p>
+                        </div>
+                        <div class="case-col">
+                            <span class="mini-label">Результат</span>
+                            <p>Рост регистраций на 22% за первый квартал работы.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="for-whom" class="section-line reveal">
+            <span class="label">Для кого мы работаем</span>
+            <div class="accordion-group">
+                <div class="acc-item">
+                    <div class="acc-trigger">
+                        <h3>Технологические стартапы</h3>
+                        <span class="plus">+</span>
+                    </div>
+                    <div class="acc-panel">
+                        <div class="acc-content">
+                            Упаковываем сложные идеи в минималистичные MVP. Делаем так, чтобы продукт выглядел визуально дорогим еще до первого раунда инвестиций.
+                        </div>
+                    </div>
+                </div>
+                <div class="acc-item">
+                    <div class="acc-trigger">
+                        <h3>Продуктовые команды</h3>
+                        <span class="plus">+</span>
+                    </div>
+                    <div class="acc-panel">
+                        <div class="acc-content">
+                            Проводим глубокий UX-аудит, устраняем «трение» в интерфейсах и помогаем масштабировать внутренние дизайн-системы.
+                        </div>
+                    </div>
+                </div>
+                <div class="acc-item">
+                    <div class="acc-trigger">
+                        <h3>Агентства и студии</h3>
+                        <span class="plus">+</span>
+                    </div>
+                    <div class="acc-panel">
+                        <div class="acc-content">
+                            Становимся надежным партнером на аутсорс-проектах, где требуется исключительное внимание к деталям и чистота кода.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="section-line reveal">
+            <span class="label">Тарифы</span>
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>Старт</h3>
+                    <p class="amount">49 900 ₽</p>
+                    <ul class="features">
+                        <li>UX-аудит (1 неделя)</li>
+                        <li>Прототип ключевых экранов</li>
+                    </ul>
+                    <button class="btn btn-white">Выбрать</button>
+                </div>
+                <div class="price-card popular">
+                    <div class="badge">ПОПУЛЯРНЫЙ</div>
+                    <h3>Профи</h3>
+                    <p class="amount">120 000 ₽</p>
+                    <ul class="features">
+                        <li>Полный UI/UX цикл</li>
+                        <li>Дизайн-система (Figma)</li>
+                    </ul>
+                    <button class="btn btn-black">Выбрать</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
